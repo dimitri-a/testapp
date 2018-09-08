@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default ({ title, icon, degrees }) => {
-    debugger
     return (
         <div>
             {title}
