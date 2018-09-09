@@ -24,7 +24,7 @@ class App extends Component {
       console.log('lat', this.state.lat);
       console.log('lon', this.state.lon);
 
-      fetch('http://localhost:4000/weather/'+this.state.lat +'/'+ this.state.lon).then((res) => {
+      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon).then((res) => {
         this.setState({
           icon: res.icon,
           degrees: res.degrees,
@@ -37,9 +37,31 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Widget title={this.state.title} className="imaag" icon={this.state.icon} degrees={this.state.degrees}></Widget>
+      <div class="grid-container">
+        <div class="left-griditem">
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" />
+          <label for="temp">Gender</label>
+
+          <label for="one">Male</label>
+          <input type="radio" id="one" name="first_item" value="1" />
+
+          <label for="two">Female</label>
+          <input type="radio" id="one" name="first_item" value="2" />
+
+        </div>
+        <div class="right-griditem">
+          <Widget title={this.state.title} className="imaag" icon={this.state.icon} degrees={this.state.degrees}></Widget>
+        </div>
       </div>
+      // <div className="App">
+
+      //   
+      // </div>
+
+
+
+
     );
   }
 }

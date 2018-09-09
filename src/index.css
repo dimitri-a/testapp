@@ -3,3 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.grid-container {
+	display: grid;
+	grid-column-gap: 5px;
+	grid-template-columns: auto auto;
+	background-color: #2196f3;
+	padding: 10px;
+}
+
+.left-griditem {
+}
+
+input,
+label {
+	display: block;
+}
