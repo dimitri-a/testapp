@@ -24,38 +24,49 @@ class App extends Component {
       console.log('lat', this.state.lat);
       console.log('lon', this.state.lon);
 
-      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon).then((res) => {
+      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon)
+      .then(res => res.json())
+      .then(json => {
+      
+        console.log(json)
         this.setState({
-          icon: res.icon,
-          degrees: res.degrees,
+          icon: json.weather[0].icon,
+          degrees: json.weather[0].degrees,
         })
       });
+        // console.log('response ',res);
+        
 
     });
 
   }
 
   render() {
+
+
+    console.log(this.state.icon);
     return (
 
       <div class="grid-container">
         <div class="left-griditem">
-          <label for="name">Name</label>
-          <input id="name" type="text" name="name" />
+          <label for="title">Title</label>
+          <input id="title" type="text" name="title" />
 
-          <label for="temp">Gender</label>
+          <label for="temp">Temperature</label>
 
           <span id="genderArea">
 
             <input type="radio" id="one" name="first_item" value="1" />
-            <label for="one">Male</label>
+            <label for="one">C</label>
 
 
             <input type="radio" id="one" name="first_item" value="2" />
-            <label for="two">Female</label>
+            <label for="two">F</label>
           </span>
         </div>
-        <div class="right-griditem">2</div>
+        <div class="right-griditem">
+          <Widget degrees={2} title={'Title blaat'} icon={this.state.icon}></Widget>
+        </div>
       </div>
 
 

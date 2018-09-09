@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default ({ title, icon, degrees }) => {
+export default ({ title, icon, degrees, farenheit }) => {
     return (
         <div>
             {title}
-            <img src={icon}></img>
+            <img src={'http://openweathermap.org/img/w/'+icon+'.png'}></img>
             {degrees}
         </div>
     )
