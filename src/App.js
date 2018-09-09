@@ -13,40 +13,25 @@ class App extends Component {
 
   componentDidMount() {
 
-
     //todo remove http://api.openweathermap.org/data/2.5/weather?lat=-3.8197&lon=11.0067&appid=c7b5b62a01a84a2d274930a57e180950
     const APPKEY = 'c7b5b62a01a84a2d274930a57e180950';
     let url = 'https://samples.openweathermap.org/data/2.5/weather';
 
-
-    axios("https://api.ipdata.co/?api-key=test").then((data)=> {
+    axios("https://api.ipdata.co/?api-key=test").then((data) => {
 
       this.setState({ lon: data.data.longitude, lat: data.data.latitude });
 
-      const urlBig =url +  '?lat=' + this.state.lat + '&lon=' + this.state.lon + '&' + 'appid=' + APPKEY;
+      console.log('lat', this.state.lat);
+      console.log('lon', this.state.lon);
 
-
-      console.log('lat',this.state.lat);
-      console.log('lon',this.state.lon);
-
-
-
-      //axios.get('http://myurl',).then(res
-
-     // axios(urlBig,{ headers: { 'crossDomain': true, 'Content-Type': 'application/json'}}).then((res) => 
-     fetch('?lat=-3.8197&lon=11.0067&appid=c7b5b62a01a84a2d274930a57e180950"').then((res) => 
-     {
+      fetch('http://localhost:4000/weather/'+this.state.lat +'/'+ this.state.lon).then((res) => {
         this.setState({
           icon: res.icon,
           degrees: res.degrees,
-
         })
       });
 
     });
-
-
-
 
   }
 
@@ -54,7 +39,6 @@ class App extends Component {
     return (
       <div className="App">
         <Widget title={this.state.title} className="imaag" icon={this.state.icon} degrees={this.state.degrees}></Widget>
-
       </div>
     );
   }
