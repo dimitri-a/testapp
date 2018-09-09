@@ -37,29 +37,26 @@ class App extends Component {
 
   render() {
     return (
+
       <div class="grid-container">
         <div class="left-griditem">
           <label for="name">Name</label>
           <input id="name" type="text" name="name" />
+
           <label for="temp">Gender</label>
 
-          <label for="one">Male</label>
-          <input type="radio" id="one" name="first_item" value="1" />
+          <span id="genderArea">
 
-          <label for="two">Female</label>
-          <input type="radio" id="one" name="first_item" value="2" />
+            <input type="radio" id="one" name="first_item" value="1" />
+            <label for="one">Male</label>
 
+
+            <input type="radio" id="one" name="first_item" value="2" />
+            <label for="two">Female</label>
+          </span>
         </div>
-        <div class="right-griditem">
-          <Widget title={this.state.title} className="imaag" icon={this.state.icon} degrees={this.state.degrees}></Widget>
-        </div>
+        <div class="right-griditem">2</div>
       </div>
-      // <div className="App">
-
-      //   
-      // </div>
-
-
 
 
     );

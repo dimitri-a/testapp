@@ -19,3 +19,13 @@ input,
 label {
 	display: block;
 }
+
+#genderArea input, #genderArea label{
+    display: inline;
+}
+
+
+div {
+	background: #fff;
+	padding: 1vw 2vw;
+}
