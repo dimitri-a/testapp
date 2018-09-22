@@ -58,15 +58,15 @@ class App extends Component {
 
 
 
-            <span id="tempArea">
+            <span id="tempArea" className="row">
 
-              <span className=''>
+              <span className='col-lg-4'>
                 <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
                 <label for="c" className="radios">C</label>
               </span>
 
-              <span className=''>
-                <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='' />
+              <span className='col-lg-4'>
+                <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
                 <label for="f" className="radios">F</label>
               </span>
 
