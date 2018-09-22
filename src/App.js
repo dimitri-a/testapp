@@ -9,16 +9,16 @@ class App extends Component {
 
   constructor() {
     super();
-    this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric',wind:'',location:'' };
+    this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric', wind: '', location: '' };
   }
 
   componentDidMount() {
     this.handleTempChange();
   }
 
-  handleTempChange = (event) =>{
+  handleTempChange = (event) => {
     //console.log(this.radio.val);
-    this.setState({'unitsType':this.state.unitsType === 'metric'? 'imperial': 'metric'})
+    this.setState({ 'unitsType': this.state.unitsType === 'metric' ? 'imperial' : 'metric' })
 
     //todo remove http://api.openweathermap.org/data/2.5/weather?lat=-3.8197&lon=11.0067&appid=c7b5b62a01a84a2d274930a57e180950
     const APPKEY = 'c7b5b62a01a84a2d274930a57e180950';
@@ -26,15 +26,15 @@ class App extends Component {
 
     axios("https://api.ipdata.co/?api-key=test").then((data) => {
       this.setState({ lon: data.data.longitude, lat: data.data.latitude });
-      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon+"/"+this.state.unitsType)
+      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon + "/" + this.state.unitsType)
         .then(res => res.json())
         .then(json => {
-          console.log('temp',json)
+          console.log('temp', json)
           this.setState({
             icon: json.weather[0].icon,
             degrees: json.main.temp,
-            wind:json.wind.speed,
-            location:json.main.location
+            wind: json.wind.speed,
+            location: json.main.location
           })
         });
     });
@@ -50,7 +50,7 @@ class App extends Component {
     return (
       <div class="container">
         <div class="row list-row">
-          <div class="border col-lg-6">
+          <div class="col-lg-5">
             <label for="title">Title</label>
             <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" />
 
@@ -59,10 +59,17 @@ class App extends Component {
 
 
             <span id="tempArea">
-              <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
-              <label for="c" className="radios">C</label>
-              <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
-              <label for="f" className="radios">F</label>
+
+              <span className=''>
+                <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
+                <label for="c" className="radios">C</label>
+              </span>
+
+              <span className=''>
+                <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='' />
+                <label for="f" className="radios">F</label>
+              </span>
+
             </span>
 
 
@@ -76,7 +83,7 @@ class App extends Component {
             </span>
 
           </div>
-          <div class="border col-lg-6"><Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind}></Widget></div>
+          <div class="border col-lg-5"><Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind}></Widget></div>
         </div>
       </div>
     );

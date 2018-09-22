@@ -1,9 +1,7 @@
 import React from 'react'
 
 export default ({ title, icon, degrees, wind, location,unitsType }) => {
-
-    console.log(degrees);
-    return (
+ return (
         <div className="border">
             <span>{title}</span>
             <div class="row list-row">
