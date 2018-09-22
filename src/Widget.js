@@ -3,7 +3,7 @@ import React from 'react'
 export default ({ title, icon, degrees, wind, location,unitsType,speed }) => {
  return (
         <div className="border">
-            <span>{' '}{title}</span>
+            <span>{title}</span>
             <div class="row">
                 <div class="border col-lg-6">
                     <img src={'http://openweathermap.org/img/w/' + icon + '.png'}></img>
