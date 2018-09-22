@@ -11,10 +11,12 @@ const fetch = require('node-fetch');
 app.use(cors());
 app.use(bodyParser.json());
 
-router.route('/weather/:lat/:lon').get((req, res) => {
+router.route('/weather/:lat/:lon/:unitsType').get((req, res) => {
     const lat = req.params.lat;
     const lon = req.params.lon;
-    fetch('http://api.openweathermap.org/data/2.5/weather?lat='+ lat +'&lon=' + lon +'&appid=c7b5b62a01a84a2d274930a57e180950')
+    const unitsType = req.params.unitsType;
+    
+    fetch('http://api.openweathermap.org/data/2.5/weather?lat='+ lat +'&lon=' + lon +'&appid=c7b5b62a01a84a2d274930a57e180950'+'&units='+ unitsType)
     .then(res => res.json())
     .then(json =>{
         //console.log(json);

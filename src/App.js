@@ -9,7 +9,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { icon: '', degrees: 0, title: 'bla', lat: 0, lon: 0 };
+    this.state = { icon: '', degrees: 0, title: 'bla', lat: 0, lon: 0,unitsType:'metric' };
   }
 
   componentDidMount() {
@@ -20,26 +20,22 @@ class App extends Component {
 
     axios("https://api.ipdata.co/?api-key=test").then((data) => {
       this.setState({ lon: data.data.longitude, lat: data.data.latitude });
-
-      // console.log('lat', this.state.lat);
-      // console.log('lon', this.state.lon);
-
-      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon)
+      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon+"/"+this.state.unitsType)
         .then(res => res.json())
         .then(json => {
           this.setState({
             icon: json.weather[0].icon,
-            degrees: json.weather[0].degrees,
+            degrees: json.weather[0].degrees
           })
         });
     });
   }
 
 
-  handleChange = ()=>{
+  handleChange = () => {
     debugger;
-    console.log('change',this.val.value);
-    this.setState({'title':this.val.value});
+    console.log('change', this.val.value);
+    this.setState({ 'title': this.val.value });
   }
 
   render() {
@@ -48,7 +44,8 @@ class App extends Component {
         <div class="row list-row">
           <div class="border col-lg-6">
             <label for="title">Title</label>
-            <input id="title" type="text" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value}  name="title" />
+            <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" />
+
             <label for="temp">Temperature</label>
 
             <span id="tempArea">
@@ -67,7 +64,7 @@ class App extends Component {
             </span>
 
           </div>
-          <div class="border col-lg-6"><Widget degrees={2} title={'Title blaat'} icon={this.state.icon}></Widget></div>
+          <div class="border col-lg-6"><Widget degrees={2} title={this.state.title} icon={this.state.icon}></Widget></div>
         </div>
       </div>
     );
