@@ -1,6 +1,8 @@
 import React from 'react'
 
 export default ({ title, icon, degrees, farenheit }) => {
+
+    console.log(degrees);
     return (
         <div className="border">
             {title}

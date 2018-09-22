@@ -19,15 +19,24 @@ class App extends Component {
   handleTempChange = (event) =>{
     //console.log(this.radio.val);
     this.setState({'unitsType':this.state.unitsType === 'metric'? 'imperial': 'metric'})
-  }
 
-  // handleTempChange = (event) => {
-  //   if (event) {
-  //     this.setState({
-  //       unitsType: event.target.value
-  //     });
-  //   }
-  // }
+    //todo remove http://api.openweathermap.org/data/2.5/weather?lat=-3.8197&lon=11.0067&appid=c7b5b62a01a84a2d274930a57e180950
+    const APPKEY = 'c7b5b62a01a84a2d274930a57e180950';
+    let url = 'https://samples.openweathermap.org/data/2.5/weather';
+
+    axios("https://api.ipdata.co/?api-key=test").then((data) => {
+      this.setState({ lon: data.data.longitude, lat: data.data.latitude });
+      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon+"/"+this.state.unitsType)
+        .then(res => res.json())
+        .then(json => {
+          console.log('temp',json)
+          this.setState({
+            icon: json.weather[0].icon,
+            degrees: json.main.temp
+          })
+        });
+    });
+  }
 
 
   handleChange = () => {
