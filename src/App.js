@@ -3,12 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import Widget from './Widget'
 import axios from 'axios';
+import { debug } from 'util';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { icon: '', degrees: 0, title: '', lat: 0, lon: 0 };
+    this.state = { icon: '', degrees: 0, title: 'bla', lat: 0, lon: 0 };
   }
 
   componentDidMount() {
@@ -34,16 +35,20 @@ class App extends Component {
     });
   }
 
+
+  handleChange = ()=>{
+    debugger;
+    console.log('change',this.val.value);
+    this.setState({'title':this.val.value});
+  }
+
   render() {
-
-
-    console.log(this.state.icon);
     return (
       <div class="container">
         <div class="row list-row">
           <div class="border col-lg-6">
             <label for="title">Title</label>
-            <input id="title" type="text" name="title" />
+            <input id="title" type="text" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value}  name="title" />
             <label for="temp">Temperature</label>
 
             <span id="tempArea">
