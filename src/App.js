@@ -9,7 +9,7 @@ class App extends Component {
 
   constructor() {
     super();
-    this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric', wind: false,speed:0, location: '' };
+    this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric', wind: false, speed: 0, location: '' };
   }
 
   componentDidMount() {
@@ -34,7 +34,7 @@ class App extends Component {
             icon: json.weather[0].icon,
             degrees: json.main.temp,
             wind: this.state.wind,
-            speed:json.wind.speed,
+            speed: json.wind.speed,
             location: json.main.location
           })
         });
@@ -53,28 +53,23 @@ class App extends Component {
 
   render() {
     return (
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5">
+      <div className="container border">
+        <hr className="line"></hr>
+        <div className="row">
+          <div className="col-lg-5">
             <label for="title">Title</label>
             <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" />
-
             <label for="temp">Temperature</label>
             <span id="tempArea" className="row">
               <span className='col-lg-4'>
                 <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
-                <label for="c" className="radios">C</label>
+                <label for="c" className="radios">&#8451;</label>
               </span>
-
               <span className='col-lg-4'>
                 <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
-                <label for="f" className="radios">F</label>
+                <label for="f" className="radios"> &#8457;</label>
               </span>
-
             </span>
-
-
-
             <br />
             <label for="temp">Wind</label>
             <span id="windArea" className="row">
@@ -82,19 +77,17 @@ class App extends Component {
                 <input type="radio" id="n" value="true" onChange={this.handleWind} checked={this.state.wind === true} className='spaceradio' />
                 <label for="n" className="radios">On</label>
               </span>
-
               <span className='col-lg-4'>
                 <input type="radio" id="o" value="false" onChange={this.handleWind} checked={this.state.wind === false} className='spaceradio' />
                 <label for="o" className="radios">Off</label>
               </span>
-
             </span>
-
-
           </div>
-          <div class="border col-lg-5"><Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind} speed={this.state.speed}></Widget></div>
+          <hr className="vline" />
+          <div className="border col-lg-5"><Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind} speed={this.state.speed}></Widget></div>
         </div>
       </div>
+
     );
   }
 }
