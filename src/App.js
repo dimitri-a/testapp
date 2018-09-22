@@ -25,17 +25,17 @@ class App extends Component {
       console.log('lon', this.state.lon);
 
       fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon)
-      .then(res => res.json())
-      .then(json => {
-      
-        console.log(json)
-        this.setState({
-          icon: json.weather[0].icon,
-          degrees: json.weather[0].degrees,
-        })
-      });
-        // console.log('response ',res);
-        
+        .then(res => res.json())
+        .then(json => {
+
+          console.log('hier', json)
+          this.setState({
+            icon: json.weather[0].icon,
+            degrees: json.weather[0].degrees,
+          })
+        });
+      // console.log('response ',res);
+
 
     });
 
@@ -47,27 +47,48 @@ class App extends Component {
     console.log(this.state.icon);
     return (
 
-      <div class="grid-container">
-        <div class="left-griditem">
-          <label for="title">Title</label>
-          <input id="title" type="text" name="title" />
-
-          <label for="temp">Temperature</label>
-
-          <span id="genderArea">
-
-            <input type="radio" id="one" name="first_item" value="1" />
-            <label for="one">C</label>
 
 
-            <input type="radio" id="one" name="first_item" value="2" />
-            <label for="two">F</label>
-          </span>
-        </div>
-        <div class="right-griditem">
-          <Widget degrees={2} title={'Title blaat'} icon={this.state.icon}></Widget>
+      <div class="container">
+        <div class="row list-row">
+          <div class="border col-lg-6">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" />
+            <label for="temp">Temperature</label>
+            <span id="genderArea">
+              <input type="radio" id="one" name="first_item" value="1" />
+              <label for="one">C</label>
+              <input type="radio" id="one" name="first_item" value="2" />
+              <label for="two">F</label>
+            </span>
+          </div>
+          <div class="border col-lg-6"><Widget degrees={2} title={'Title blaat'} icon={this.state.icon}></Widget></div>
         </div>
       </div>
+
+
+
+      // <div class="grid-container">
+      //   <div class="left-griditem">
+      //     <label for="title">Title</label>
+      //     <input id="title" type="text" name="title" />
+
+      //     <label for="temp">Temperature</label>
+
+      //     <span id="genderArea">
+
+      //       <input type="radio" id="one" name="first_item" value="1" />
+      //       <label for="one">C</label>
+
+
+      //       <input type="radio" id="one" name="first_item" value="2" />
+      //       <label for="two">F</label>
+      //     </span>
+      //   </div>
+      //   <div class="right-griditem">
+      //     <Widget degrees={2} title={'Title blaat'} icon={this.state.icon}></Widget>
+      //   </div>
+      // </div>
 
 
     );
