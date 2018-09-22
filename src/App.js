@@ -9,7 +9,7 @@ class App extends Component {
 
   constructor() {
     super();
-    this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric' };
+    this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric',wind:'',location:'' };
   }
 
   componentDidMount() {
@@ -32,7 +32,9 @@ class App extends Component {
           console.log('temp',json)
           this.setState({
             icon: json.weather[0].icon,
-            degrees: json.main.temp
+            degrees: json.main.temp,
+            wind:json.wind.speed,
+            location:json.main.location
           })
         });
     });
@@ -74,7 +76,7 @@ class App extends Component {
             </span>
 
           </div>
-          <div class="border col-lg-6"><Widget degrees={this.state.degrees} title={this.state.title} icon={this.state.icon}></Widget></div>
+          <div class="border col-lg-6"><Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind}></Widget></div>
         </div>
       </div>
     );
