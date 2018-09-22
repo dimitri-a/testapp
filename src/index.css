@@ -12,15 +12,17 @@ body {
 	padding: 10px;
 }
 
-.left-griditem {
-}
 
 input,
 label {
 	display: block;
 }
 
-#genderArea input, #genderArea label{
+#tempArea input, #tempArea label{
+    display: inline;
+}
+
+#windArea input, #windArea label{
     display: inline;
 }
 
@@ -28,4 +30,14 @@ label {
 div {
 	background: #fff;
 	padding: 1vw 2vw;
+}
+
+.spaceradio
+{
+	margin-right:30px;
+}
+
+.radios
+{
+	margin-right:60px;
 }
