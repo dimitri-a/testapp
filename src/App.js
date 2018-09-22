@@ -7,33 +7,30 @@ import { debug } from 'util';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { icon: '', degrees: 0, title: 'bla', lat: 0, lon: 0,unitsType:'metric' };
+  constructor() {
+    super();
+    this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric' };
   }
 
   componentDidMount() {
-
-    //todo remove http://api.openweathermap.org/data/2.5/weather?lat=-3.8197&lon=11.0067&appid=c7b5b62a01a84a2d274930a57e180950
-    const APPKEY = 'c7b5b62a01a84a2d274930a57e180950';
-    let url = 'https://samples.openweathermap.org/data/2.5/weather';
-
-    axios("https://api.ipdata.co/?api-key=test").then((data) => {
-      this.setState({ lon: data.data.longitude, lat: data.data.latitude });
-      fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon+"/"+this.state.unitsType)
-        .then(res => res.json())
-        .then(json => {
-          this.setState({
-            icon: json.weather[0].icon,
-            degrees: json.weather[0].degrees
-          })
-        });
-    });
+    this.handleTempChange();
   }
+
+  handleTempChange = (event) =>{
+    //console.log(this.radio.val);
+    this.setState({'unitsType':this.state.unitsType === 'metric'? 'imperial': 'metric'})
+  }
+
+  // handleTempChange = (event) => {
+  //   if (event) {
+  //     this.setState({
+  //       unitsType: event.target.value
+  //     });
+  //   }
+  // }
 
 
   handleChange = () => {
-    debugger;
     console.log('change', this.val.value);
     this.setState({ 'title': this.val.value });
   }
@@ -48,12 +45,16 @@ class App extends Component {
 
             <label for="temp">Temperature</label>
 
+
+
             <span id="tempArea">
-              <input type="radio" id="one" name="first_item" value="1" className='spaceradio' />
-              <label for="one" className="radios">C</label>
-              <input type="radio" id="one" name="first_item" value="2" className='spaceradio' />
-              <label for="two">F</label>
+              <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
+              <label for="c" className="radios">C</label>
+              <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
+              <label for="f" className="radios">F</label>
             </span>
+
+
 
             <br />
             <span id="windArea">
@@ -64,7 +65,7 @@ class App extends Component {
             </span>
 
           </div>
-          <div class="border col-lg-6"><Widget degrees={2} title={this.state.title} icon={this.state.icon}></Widget></div>
+          <div class="border col-lg-6"><Widget degrees={this.state.degrees} title={this.state.title} icon={this.state.icon}></Widget></div>
         </div>
       </div>
     );
