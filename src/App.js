@@ -53,6 +53,14 @@ class App extends Component {
               <label for="two">F</label>
             </span>
 
+            <br />
+            <span id="windArea">
+              <input type="radio" id="one" name="first_item" value="1" className='spaceradio' />
+              <label for="one" className="radios">On</label>
+              <input type="radio" id="one" name="first_item" value="2" className='spaceradio' />
+              <label for="two">Off</label>
+            </span>
+
           </div>
           <div class="border col-lg-6"><Widget degrees={2} title={'Title blaat'} icon={this.state.icon}></Widget></div>
         </div>
