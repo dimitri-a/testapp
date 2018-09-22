@@ -19,8 +19,8 @@ label {
 }
 
 
-div {
-	background: #fff;
+div#main {
+	background:#E0E0E0;
 	padding: 1vw 2vw;
 }
 

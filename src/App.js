@@ -53,7 +53,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container border">
+      <div id="main" className="container border">
         <hr className="line"></hr>
         <div className="row">
           <div className="col-lg-5">
