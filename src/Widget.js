@@ -1,23 +1,35 @@
-import {React,Component} from 'react';
-class Widget extends Component {
+import React, { Component } from 'react'
 
-    constructor(){
-        super();
-    }
+export default class Widget extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
+        debugger;
         // console.log(!!nextProps.user && nextProps.user.userId !== this.props.user.userId);
         // return !!nextProps.user && nextProps.user.userId !== this.props.user.userId;
-        return false;
+        return true;
     }
+    
+    render() {
 
-    render(){
-        const { title, icon, degrees, wind, location, unitsType,speed } = this.props;
+        const { title, icon, degrees, wind, location, unitsType, speed } = this.props;
+
         return (
-            <div>jflksjfkljdslkjkl</div>
-           
+            <div className="widget">
+                <div className="row">
+                    <div className="col-lg-12 title">{title}</div>
+                </div>
+
+                <div className="row widgettop">
+                    <div className="col-lg-6 topicon">
+                        <img src={'http://openweathermap.org/img/w/' + icon + '.png'}></img>
+                    </div>
+                    <div className="col-lg-6 topdegrees">
+                        {location}
+                        <div className='degrees'>{degrees}&deg;</div>
+                        {wind && <div>Wind<span className='wind'>{speed}</span> {unitsType === 'metric' ? <span>km/h</span> : <span>mph</span>}</div>}
+                    </div>
+                </div>
+            </div>
         )
     }
 }
-
-export default Widget;
