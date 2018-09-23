@@ -35,7 +35,7 @@ class App extends Component {
             degrees: json.main.temp,
             wind: this.state.wind,
             speed: json.wind.speed,
-            location: json.main.location
+            location: json.name
           })
         });
     });
@@ -44,7 +44,7 @@ class App extends Component {
 
   handleChange = () => {
     console.log('change', this.val.value);
-    this.setState({ 'title': this.val.value });
+    this.setState({ 'title': this.val.value.toUpperCase() });
   }
 
   handleWind = () => {
@@ -54,14 +54,14 @@ class App extends Component {
   render() {
     return (
 
-      <div>
-          <hr className="line"></hr>
+      <div className="left">
+          <hr className="container"></hr>
         
         <div id="main" className="container border">
           <div className="row">
-            <div className="col-lg-5">
+            <div className="col-lg-5 top">
               <label for="title">Title</label>
-              <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" />
+              <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" className="text"/>
               <label for="temp">Temperature</label>
 
               <span id="tempArea" className="row">
@@ -88,7 +88,7 @@ class App extends Component {
               </span>
             </div>
             <div className="divider"></div>
-            <div className="col-lg-5">
+            <div className="col-lg-5 top">
               <Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind} speed={this.state.speed}></Widget></div>
           </div>
         </div>

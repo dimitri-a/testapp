@@ -40,7 +40,7 @@ div#main {
 
 img
 {
-    width:30% !important;
+    width:84% !important;
     height:100% !important;
 }
 
@@ -58,5 +58,57 @@ hr {
     border-top: 10px solid #ccc;
     margin: 1 0;
     padding: 0;
-    width:80%;
+    width:95%;
 }
+
+.widget{
+    box-shadow: 1px 2px 1px lightgray;
+    background-color: white;
+    margin-left:30px;
+    height: 100%;
+
+}
+
+.title
+{
+    margin-left:30px;
+    padding:10px;
+    position: absolute;
+
+}
+
+.left
+{
+    margin-left:20px;
+    padding:10px;
+    vertical-align: top;
+}
+
+.text{
+    width:60%;
+}
+
+.top{
+    margin-top:15px;
+}
+
+.widgettop{
+    margin-top:15px;
+}
+
+
+.topdegrees
+{
+    margin-top:40px;
+}
+
+.degrees{
+    font-size:xx-large;
+    font-weight: bold;
+}
+
+.wind{
+    font-size: small;
+    font-weight: bold;
+}
+

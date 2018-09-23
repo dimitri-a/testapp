@@ -1,18 +1,20 @@
 import React from 'react'
 
-export default ({ title, icon, degrees, wind, location,unitsType,speed }) => {
- return (
-        <div className="border">
-            <span>{title}</span>
-            <div class="row">
-                <div class="border col-lg-6">
+export default ({ title, icon, degrees, wind, location, unitsType, speed }) => {
+    return (
+        <div className="widget">
+            <div className="row">
+                <div className="col-lg-12 title">{title}</div>
+            </div>
+
+            <div className="row widgettop">
+                <div className="col-lg-6">
                     <img src={'http://openweathermap.org/img/w/' + icon + '.png'}></img>
                 </div>
-                <div class="border col-lg-6">
-                    <br />
+                <div className="col-lg-6 topdegrees">
                     {location}
-                    <h2>{degrees}{unitsType==='metric' ? <label>&#8451;</label> :  <label>&#8457;</label>}</h2>
-                    {wind && <h3>wind{speed} {unitsType==='metric'? <span>km/h</span> :<span>mph</span>}</h3>}
+                    <div className='degrees'>{degrees}&deg;</div>
+                    {wind && <div>Wind<span className='wind'>{speed}</span> {unitsType === 'metric' ? <span>km/h</span> : <span>mph</span>}</div>}
                 </div>
             </div>
         </div>
