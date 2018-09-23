@@ -3,16 +3,11 @@ import React, { Component } from 'react'
 export default class Widget extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
-        debugger;
-        // console.log(!!nextProps.user && nextProps.user.userId !== this.props.user.userId);
-        // return !!nextProps.user && nextProps.user.userId !== this.props.user.userId;
-        return true;
+        return this.props.degrees!== nextProps.degrees || this.props.wind !== nextProps.wind;
     }
-    
+
     render() {
-
         const { title, icon, degrees, wind, location, unitsType, speed } = this.props;
-
         return (
             <div className="widget">
                 <div className="row">
