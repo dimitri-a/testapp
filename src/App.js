@@ -55,13 +55,13 @@ class App extends Component {
     return (
 
       <div className="left">
-          <hr className="container"></hr>
-        
+        <hr className="container hline"></hr>
+
         <div id="main" className="container border">
           <div className="row">
             <div className="col-lg-5 top">
               <label for="title">Title</label>
-              <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" className="text"/>
+              <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" className="text" />
               <label for="temp">Temperature</label>
 
               <span id="tempArea" className="row">
@@ -74,7 +74,9 @@ class App extends Component {
                   <label for="f" className="radios">&#8457;</label>
                 </span>
               </span>
+
               <br />
+
               <label for="temp">Wind</label>
               <span id="windArea" className="row">
                 <span className='col-lg-4'>
@@ -86,6 +88,8 @@ class App extends Component {
                   <label for="o" className="radios">Off</label>
                 </span>
               </span>
+
+              
             </div>
             <div className="divider"></div>
             <div className="col-lg-5 top">
