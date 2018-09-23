@@ -68,7 +68,7 @@ class App extends Component {
               </span>
               <span className='col-lg-4'>
                 <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
-                <label for="f" className="radios"> &#8457;</label>
+                <label for="f" className="radios">&#8457;</label>
               </span>
             </span>
             <br />
