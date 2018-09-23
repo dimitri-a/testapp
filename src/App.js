@@ -53,40 +53,44 @@ class App extends Component {
 
   render() {
     return (
-      <div id="main" className="container border">
-        <hr className="line"></hr>
-        <div className="row">
-          <div className="col-lg-5">
-            <label for="title">Title</label>
-            <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" />
-            <label for="temp">Temperature</label>
 
-            <span id="tempArea" className="row">
-              <span className='col-lg-4'>
-                <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
-                <label for="c" className="radios">&#8451;</label>
+      <div>
+          <hr className="line"></hr>
+        
+        <div id="main" className="container border">
+          <div className="row">
+            <div className="col-lg-5">
+              <label for="title">Title</label>
+              <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" />
+              <label for="temp">Temperature</label>
+
+              <span id="tempArea" className="row">
+                <span className='col-lg-4'>
+                  <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
+                  <label for="c" className="radios">&#8451;</label>
+                </span>
+                <span className='col-lg-4'>
+                  <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
+                  <label for="f" className="radios">&#8457;</label>
+                </span>
               </span>
-              <span className='col-lg-4'>
-                <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
-                <label for="f" className="radios">&#8457;</label>
+              <br />
+              <label for="temp">Wind</label>
+              <span id="windArea" className="row">
+                <span className='col-lg-4'>
+                  <input type="radio" id="n" value="true" onChange={this.handleWind} checked={this.state.wind === true} className='spaceradio' />
+                  <label for="n" className="radios">On</label>
+                </span>
+                <span className='col-lg-4'>
+                  <input type="radio" id="o" value="false" onChange={this.handleWind} checked={this.state.wind === false} className='spaceradio' />
+                  <label for="o" className="radios">Off</label>
+                </span>
               </span>
-            </span>
-            <br />
-            <label for="temp">Wind</label>
-            <span id="windArea" className="row">
-              <span className='col-lg-4'>
-                <input type="radio" id="n" value="true" onChange={this.handleWind} checked={this.state.wind === true} className='spaceradio' />
-                <label for="n" className="radios">On</label>
-              </span>
-              <span className='col-lg-4'>
-                <input type="radio" id="o" value="false" onChange={this.handleWind} checked={this.state.wind === false} className='spaceradio' />
-                <label for="o" className="radios">Off</label>
-              </span>
-            </span>
+            </div>
+            <div className="divider"></div>
+            <div className="col-lg-5">
+              <Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind} speed={this.state.speed}></Widget></div>
           </div>
-          <div className="divider"></div>
-          <div className="col-lg-5">
-            <Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind} speed={this.state.speed}></Widget></div>
         </div>
       </div>
 
