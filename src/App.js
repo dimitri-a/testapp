@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Widget from './Widget'
 import axios from 'axios';
 import { debug } from 'util';
@@ -16,10 +14,8 @@ class App extends Component {
   }
 
   handleTempChange = () => {
-    //console.log(this.radio.val);
     this.setState({ 'unitsType': this.state.unitsType === 'metric' ? 'imperial' : 'metric' })
 
-    //todo remove http://api.openweathermap.org/data/2.5/weather?lat=-3.8197&lon=11.0067&appid=c7b5b62a01a84a2d274930a57e180950
     const APPKEY = 'c7b5b62a01a84a2d274930a57e180950';
     let url = 'https://samples.openweathermap.org/data/2.5/weather';
 
@@ -28,7 +24,7 @@ class App extends Component {
       fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon + "/" + this.state.unitsType)
         .then(res => res.json())
         .then(json => {
-          console.log('temp', json)
+          console.log(json)
           this.setState({
             icon: json.weather[0].icon,
             degrees: json.main.temp,
@@ -59,7 +55,7 @@ class App extends Component {
               <label for="title">Title</label>
               <input id="title"
                 type="text"
-                placeholder="Title placeholder"
+                placeholder="Title of widget"
                 onChange={this.handleTitleChange}
                 ref={(node) => { this.val = node }}
                 value={this.state.value}
@@ -88,6 +84,7 @@ class App extends Component {
                 radio2Value='Off'
               />
             </div>
+
             <div className="divider"></div>
 
             <div className="col-lg-5 top">
@@ -104,7 +101,6 @@ class App extends Component {
           </div>
         </div>
       </div>
-
     );
   }
 }

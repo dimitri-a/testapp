@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-
 export default class Widget extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.degrees!== nextProps.degrees || this.props.wind !== nextProps.wind;
+        return this.props.degrees!== nextProps.degrees || 
+        this.props.wind !== nextProps.wind ||
+        this.props.title !== nextProps.title;
     }
 
     render() {

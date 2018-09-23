@@ -12,16 +12,19 @@ label {
 
 #tempArea input, #tempArea label{
     display: inline;
+    margin-bottom: 10px;
 }
 
 #windArea input, #windArea label{
     display: inline;
+    margin-bottom: 10px;
 }
 
 
 div#main {
 	background:#F2F2F2;
-	padding: 1vw 2vw;
+    padding: 1vw 2vw;
+    width:50%;
 }
 
 .spaceradio
@@ -29,36 +32,15 @@ div#main {
 	margin-right:10px;
 }
 
-/* .radios
-{
-	margin-right:60px;
-} */
-
-/* input[type="radio"] {
-    margin-left:20px;
-} */
-
 img
 {
     width:84% !important;
     height:100% !important;
+    margin-left: 20px;
 }
 
 .divider{
-    left:50%;
-    top:10%;
-    bottom:10%;
     border-left:1px solid lightgrey;
-}
-
-hr {
-    display: block;
-    height: 11px;
-    border: 0;
-    border-top: 10px solid #ccc;
-    margin: 1 0;
-    padding: 0;
-    width:95%;
 }
 
 .widget{
@@ -66,7 +48,7 @@ hr {
     background-color: white;
     margin-left:30px;
     height: 100%;
-
+    width:100%;
 }
 
 .title
@@ -74,7 +56,6 @@ hr {
     margin-left:30px;
     padding:10px;
     position: absolute;
-
 }
 
 .left
@@ -84,18 +65,19 @@ hr {
     vertical-align: top;
 }
 
-.text{
+.text
+{
     width:60%;
 }
 
-.top{
+.top
+{
     margin-top:15px;
 }
 
 .widgettop{
     margin-top:15px;
 }
-
 
 .topdegrees
 {
@@ -106,7 +88,6 @@ hr {
 {
     margin-top:20px;
 }
-
 
 .degrees{
     font-size:xx-large;
@@ -121,5 +102,6 @@ hr {
 .hline {
     border-top: 4px solid blue;
     padding: 0 !important;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
+    width:50%;
 }
