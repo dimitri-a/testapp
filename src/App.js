@@ -4,6 +4,7 @@ import './App.css';
 import Widget from './Widget'
 import axios from 'axios';
 import { debug } from 'util';
+import RadioButtons from './RadioButtons';
 
 class App extends Component {
 
@@ -42,12 +43,12 @@ class App extends Component {
   }
 
 
-  handleChange = () => {
+  handleTitleChange = () => {
     console.log('change', this.val.value);
     this.setState({ 'title': this.val.value.toUpperCase() });
   }
 
-  handleWind = () => {
+  handleWindChange = () => {
     this.setState({ 'wind': this.state.wind ? false : true });
   }
 
@@ -63,17 +64,7 @@ class App extends Component {
               <label for="title">Title</label>
               <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" className="text" />
 
-              <label for="temp">Temperature</label>
-              <div id="tempArea" className="row">
-                <span className='col-lg-4'>
-                  <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
-                  <label for="c" className="radios">&#8451;</label>
-                </span>
-                <span className='col-lg-4'>
-                  <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
-                  <label for="f" className="radios">&#8457;</label>
-                </span>
-              </div>
+              <RadioButtons id={'tempArea'} labelText={'Temperature'} value1={'metric'} value2={'imperial'} handleChange={this.handleTempChange} stateVar={this.state.unitsType}/>
 
 
               <label for="temp">Wind</label>
