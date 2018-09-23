@@ -15,8 +15,10 @@ router.route('/weather/:lat/:lon/:unitsType').get((req, res) => {
     const lat = req.params.lat;
     const lon = req.params.lon;
     const unitsType = req.params.unitsType;
+
+    const APPKEY = 'c7b5b62a01a84a2d274930a57e180950';
     
-    fetch('http://api.openweathermap.org/data/2.5/weather?lat='+ lat +'&lon=' + lon +'&appid=c7b5b62a01a84a2d274930a57e180950'+'&units='+ unitsType)
+    fetch('http://api.openweathermap.org/data/2.5/weather?lat='+ lat +'&lon=' + lon +'&appid='+APPKEY+'&units='+ unitsType)
     .then(res => res.json())
     .then(json =>{
         //console.log(json);

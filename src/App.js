@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Widget from './Widget'
 import axios from 'axios';
-import { debug } from 'util';
 import RadioButtons from './RadioButtons';
 class App extends Component {
   constructor() {
@@ -16,7 +15,7 @@ class App extends Component {
   handleTempChange = () => {
     this.setState({ 'unitsType': this.state.unitsType === 'metric' ? 'imperial' : 'metric' })
 
-    const APPKEY = 'c7b5b62a01a84a2d274930a57e180950';
+ 
     let url = 'https://samples.openweathermap.org/data/2.5/weather';
 
     axios("https://api.ipdata.co/?api-key=test").then((data) => {
@@ -52,7 +51,7 @@ class App extends Component {
         <div id="main" className="container border">
           <div className="row">
             <div className="col-lg-5 top">
-              <label for="title">Title</label>
+              <label htmlFor="title">Title</label>
               <input id="title"
                 type="text"
                 placeholder="Title of widget"
