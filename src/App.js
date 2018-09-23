@@ -84,7 +84,7 @@ class App extends Component {
               </span>
             </span>
           </div>
-          <div className="col-lg-2"></div>
+          <div className="divider"></div>
           <div className="col-lg-5">
             <Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind} speed={this.state.speed}></Widget></div>
         </div>
