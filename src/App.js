@@ -62,9 +62,9 @@ class App extends Component {
             <div className="col-lg-5 top">
               <label for="title">Title</label>
               <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" className="text" />
-              <label for="temp">Temperature</label>
 
-              <span id="tempArea" className="row">
+              <label for="temp">Temperature</label>
+              <div id="tempArea" className="row">
                 <span className='col-lg-4'>
                   <input type="radio" id="c" value="metric" onChange={this.handleTempChange} checked={this.state.unitsType === "metric"} className='spaceradio' />
                   <label for="c" className="radios">&#8451;</label>
@@ -73,12 +73,11 @@ class App extends Component {
                   <input type="radio" id="f" value="imperial" onChange={this.handleTempChange} checked={this.state.unitsType === "imperial"} className='spaceradio' />
                   <label for="f" className="radios">&#8457;</label>
                 </span>
-              </span>
+              </div>
 
-              <br />
 
               <label for="temp">Wind</label>
-              <span id="windArea" className="row">
+              <div id="windArea" className="row">
                 <span className='col-lg-4'>
                   <input type="radio" id="n" value="true" onChange={this.handleWind} checked={this.state.wind === true} className='spaceradio' />
                   <label for="n" className="radios">On</label>
@@ -87,9 +86,9 @@ class App extends Component {
                   <input type="radio" id="o" value="false" onChange={this.handleWind} checked={this.state.wind === false} className='spaceradio' />
                   <label for="o" className="radios">Off</label>
                 </span>
-              </span>
+              </div>
 
-              
+
             </div>
             <div className="divider"></div>
             <div className="col-lg-5 top">
