@@ -5,9 +5,7 @@ import Widget from './Widget'
 import axios from 'axios';
 import { debug } from 'util';
 import RadioButtons from './RadioButtons';
-
 class App extends Component {
-
   constructor() {
     super();
     this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric', wind: false, speed: 0, location: '' };
@@ -42,9 +40,7 @@ class App extends Component {
     });
   }
 
-
   handleTitleChange = () => {
-    console.log('change', this.val.value);
     this.setState({ 'title': this.val.value.toUpperCase() });
   }
 
@@ -54,7 +50,6 @@ class App extends Component {
 
   render() {
     return (
-
       <div className="left">
         <hr className="container hline"></hr>
 
@@ -62,7 +57,14 @@ class App extends Component {
           <div className="row">
             <div className="col-lg-5 top">
               <label for="title">Title</label>
-              <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" className="text" />
+              <input id="title"
+                type="text"
+                placeholder="Title placeholder"
+                onChange={this.handleTitleChange}
+                ref={(node) => { this.val = node }}
+                value={this.state.value}
+                name="title"
+                className="text" />
 
               <RadioButtons
                 id={'tempArea'}
@@ -73,7 +75,6 @@ class App extends Component {
                 stateVar={this.state.unitsType}
                 radio1Value='&#8451;'
                 radio2Value='&#8457;'
-
               />
 
               <RadioButtons
@@ -83,15 +84,23 @@ class App extends Component {
                 value2={false}
                 handleChange={this.handleWindChange}
                 stateVar={this.state.wind}
-                radio1Value={true}
-                radio2Value={false}
-
+                radio1Value='On'
+                radio2Value='Off'
               />
-
             </div>
             <div className="divider"></div>
+
             <div className="col-lg-5 top">
-              <Widget degrees={this.state.degrees} unitsType={this.state.unitsType} title={this.state.title} icon={this.state.icon} location={this.state.location} wind={this.state.wind} speed={this.state.speed}></Widget></div>
+              <Widget
+                degrees={this.state.degrees}
+                unitsType={this.state.unitsType}
+                title={this.state.title}
+                icon={this.state.icon}
+                location={this.state.location}
+                wind={this.state.wind}
+                speed={this.state.speed}>
+              </Widget>
+            </div>
           </div>
         </div>
       </div>

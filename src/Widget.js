@@ -1,22 +1,23 @@
-import React from 'react'
+import {React,Component} from 'react';
+class Widget extends Component {
 
-export default ({ title, icon, degrees, wind, location, unitsType, speed }) => {
-    return (
-        <div className="widget">
-            <div className="row">
-                <div className="col-lg-12 title">{title}</div>
-            </div>
+    constructor(){
+        super();
+    }
 
-            <div className="row widgettop">
-                <div className="col-lg-6 topicon">
-                    <img src={'http://openweathermap.org/img/w/' + icon + '.png'}></img>
-                </div>
-                <div className="col-lg-6 topdegrees">
-                    {location}
-                    <div className='degrees'>{degrees}&deg;</div>
-                    {wind && <div>Wind<span className='wind'>{speed}</span> {unitsType === 'metric' ? <span>km/h</span> : <span>mph</span>}</div>}
-                </div>
-            </div>
-        </div>
-    )
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log(!!nextProps.user && nextProps.user.userId !== this.props.user.userId);
+        // return !!nextProps.user && nextProps.user.userId !== this.props.user.userId;
+        return false;
+    }
+
+    render(){
+        const { title, icon, degrees, wind, location, unitsType,speed } = this.props;
+        return (
+            <div>jflksjfkljdslkjkl</div>
+           
+        )
+    }
 }
+
+export default Widget;
