@@ -64,21 +64,29 @@ class App extends Component {
               <label for="title">Title</label>
               <input id="title" type="text" placeholder="Title placeholder" onChange={this.handleChange} ref={(node) => { this.val = node }} value={this.state.value} name="title" className="text" />
 
-              <RadioButtons id={'tempArea'} labelText={'Temperature'} value1={'metric'} value2={'imperial'} handleChange={this.handleTempChange} stateVar={this.state.unitsType}/>
+              <RadioButtons
+                id={'tempArea'}
+                labelText={'Temperature'}
+                value1={'metric'}
+                value2={'imperial'}
+                handleChange={this.handleTempChange}
+                stateVar={this.state.unitsType}
+                radio1Value='&#8451;'
+                radio2Value='&#8457;'
 
+              />
 
-              <label for="temp">Wind</label>
-              <div id="windArea" className="row">
-                <span className='col-lg-4'>
-                  <input type="radio" id="n" value="true" onChange={this.handleWind} checked={this.state.wind === true} className='spaceradio' />
-                  <label for="n" className="radios">On</label>
-                </span>
-                <span className='col-lg-4'>
-                  <input type="radio" id="o" value="false" onChange={this.handleWind} checked={this.state.wind === false} className='spaceradio' />
-                  <label for="o" className="radios">Off</label>
-                </span>
-              </div>
+              <RadioButtons
+                id={'windArea'}
+                labelText={'Wind'}
+                value1={true}
+                value2={false}
+                handleChange={this.handleWindChange}
+                stateVar={this.state.wind}
+                radio1Value={true}
+                radio2Value={false}
 
+              />
 
             </div>
             <div className="divider"></div>
