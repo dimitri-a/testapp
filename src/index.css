@@ -20,11 +20,10 @@ label {
     margin-bottom: 10px;
 }
 
-
 div#main {
 	background:#F2F2F2;
     padding: 1vw 2vw;
-    width:50%;
+    width:48%;
 }
 
 .spaceradio
@@ -46,9 +45,9 @@ img
 .widget{
     box-shadow: 1px 2px 1px lightgray;
     background-color: white;
-    margin-left:30px;
+    margin-left:10px;
     height: 100%;
-    width:100%;
+    width:90%;
 }
 
 .title
@@ -67,7 +66,8 @@ img
 
 .text
 {
-    width:60%;
+    height: 40px;
+    width:100%;
 }
 
 .top
@@ -103,5 +103,5 @@ img
     border-top: 4px solid blue;
     padding: 0 !important;
     margin-bottom: 10px;
-    width:50%;
+    width:48%;
 }

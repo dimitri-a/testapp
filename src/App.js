@@ -14,10 +14,7 @@ class App extends Component {
 
   handleTempChange = () => {
     this.setState({ 'unitsType': this.state.unitsType === 'metric' ? 'imperial' : 'metric' })
-
- 
-    let url = 'https://samples.openweathermap.org/data/2.5/weather';
-
+   
     axios("https://api.ipdata.co/?api-key=test").then((data) => {
       this.setState({ lon: data.data.longitude, lat: data.data.latitude });
       fetch('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon + "/" + this.state.unitsType)
@@ -47,14 +44,13 @@ class App extends Component {
     return (
       <div className="left">
         <hr className="container hline"></hr>
-
         <div id="main" className="container border">
           <div className="row">
-            <div className="col-lg-5 top">
+            <div className="col-lg-6 top">
               <label htmlFor="title">Title</label>
               <input id="title"
                 type="text"
-                placeholder="Title of widget"
+                placeholder=" Title of widget"
                 onChange={this.handleTitleChange}
                 ref={(node) => { this.val = node }}
                 value={this.state.value}
@@ -83,10 +79,7 @@ class App extends Component {
                 radio2Value='Off'
               />
             </div>
-
-            <div className="divider"></div>
-
-            <div className="col-lg-5 top">
+            <div className="col-lg-6 divider top">
               <Widget
                 degrees={this.state.degrees}
                 unitsType={this.state.unitsType}

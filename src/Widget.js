@@ -22,7 +22,7 @@ export default class Widget extends Component {
                     <div className="col-lg-6 topdegrees">
                         {location}
                         <div className='degrees'>{degrees}&deg;</div>
-                        {wind && <div>Wind<span className='wind'>{speed}</span> {unitsType === 'metric' ? <span>km/h</span> : <span>mph</span>}</div>}
+                        {wind && <div>Wind{' '}<span className='wind'>{speed}</span> {unitsType === 'metric' ? <span>km/h</span> : <span>mph</span>}</div>}
                     </div>
                 </div>
             </div>
